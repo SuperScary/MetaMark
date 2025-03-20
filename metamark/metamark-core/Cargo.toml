@@ -1,0 +1,34 @@
+[package]
+name = "metamark-core"
+version.workspace = true
+edition.workspace = true
+authors.workspace = true
+description = "Core library for MetaMark document processing"
+license.workspace = true
+
+[dependencies]
+# Parsing & Processing
+nom.workspace = true
+pulldown-cmark.workspace = true
+serde = { workspace = true }
+serde_yaml.workspace = true
+toml.workspace = true
+
+# Error Handling & Utils
+thiserror.workspace = true
+anyhow.workspace = true
+
+# Async Runtime
+tokio = { workspace = true }
+async-trait.workspace = true
+
+# Serialization
+serde_json.workspace = true
+bincode.workspace = true
+
+# Security
+ring.workspace = true
+
+[dev-dependencies]
+pretty_assertions.workspace = true
+tokio-test.workspace = true 

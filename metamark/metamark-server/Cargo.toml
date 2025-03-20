@@ -1,0 +1,43 @@
+[package]
+name = "metamark-server"
+version.workspace = true
+edition.workspace = true
+authors.workspace = true
+description = "Collaboration server for MetaMark"
+license.workspace = true
+
+[dependencies]
+metamark-core = { path = "../metamark-core" }
+
+# Web Framework
+axum = { workspace = true }
+tower = { workspace = true }
+tower-http = { workspace = true }
+
+# WebSocket
+tokio-tungstenite = { workspace = true }
+futures = { workspace = true }
+
+# Authentication
+jsonwebtoken = { workspace = true }
+argon2 = { workspace = true }
+
+# Async Runtime
+tokio = { workspace = true }
+async-trait = { workspace = true }
+
+# Error Handling
+anyhow = { workspace = true }
+thiserror = { workspace = true }
+
+# Serialization
+serde = { workspace = true }
+serde_json = { workspace = true }
+
+# Logging
+tracing = { workspace = true }
+tracing-subscriber = { workspace = true }
+
+[dev-dependencies]
+tokio-test = { workspace = true }
+reqwest = { version = "0.11", features = ["json"] } 
