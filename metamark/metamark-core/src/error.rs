@@ -18,7 +18,7 @@ pub enum Error {
     Io(#[from] std::io::Error),
 
     #[error("Serialization error: {0}")]
-    Serialization(#[from] serde_json::Error),
+    Serialization(String),
 
     #[error("Encryption error: {0}")]
     Encryption(String),
@@ -48,5 +48,9 @@ impl Error {
 
     pub fn security<T: ToString>(msg: T) -> Self {
         Self::Security(msg.to_string())
+    }
+
+    pub fn serialization<T: ToString>(msg: T) -> Self {
+        Self::Serialization(msg.to_string())
     }
 } 

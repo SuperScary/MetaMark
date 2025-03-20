@@ -1,6 +1,13 @@
 {
     "cSpell.words": [
+        "chrono",
+        "ciphertext",
+        "cmark",
+        "katex",
         "metamark",
-        "mmkd"
+        "mmkd",
+        "serde",
+        "tauri",
+        "thiserror"
     ]
 }

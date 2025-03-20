@@ -1,0 +1,17 @@
+E:\MetaMark\metamark\target\debug\deps\libcssparser-ec466fe6b6c2ee07.rmeta: C:\Users\wylan\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\cssparser-0.27.2\src\lib.rs C:\Users\wylan\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\cssparser-0.27.2\src\macros.rs C:\Users\wylan\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\cssparser-0.27.2\src\rules_and_declarations.rs C:\Users\wylan\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\cssparser-0.27.2\src\color.rs C:\Users\wylan\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\cssparser-0.27.2\src\cow_rc_str.rs C:\Users\wylan\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\cssparser-0.27.2\src\from_bytes.rs C:\Users\wylan\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\cssparser-0.27.2\src\nth.rs C:\Users\wylan\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\cssparser-0.27.2\src\parser.rs C:\Users\wylan\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\cssparser-0.27.2\src\serializer.rs C:\Users\wylan\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\cssparser-0.27.2\src\unicode_range.rs E:\MetaMark\metamark\target\debug\build\cssparser-88776bfccfc240f8\out/tokenizer.rs
+
+E:\MetaMark\metamark\target\debug\deps\cssparser-ec466fe6b6c2ee07.d: C:\Users\wylan\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\cssparser-0.27.2\src\lib.rs C:\Users\wylan\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\cssparser-0.27.2\src\macros.rs C:\Users\wylan\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\cssparser-0.27.2\src\rules_and_declarations.rs C:\Users\wylan\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\cssparser-0.27.2\src\color.rs C:\Users\wylan\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\cssparser-0.27.2\src\cow_rc_str.rs C:\Users\wylan\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\cssparser-0.27.2\src\from_bytes.rs C:\Users\wylan\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\cssparser-0.27.2\src\nth.rs C:\Users\wylan\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\cssparser-0.27.2\src\parser.rs C:\Users\wylan\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\cssparser-0.27.2\src\serializer.rs C:\Users\wylan\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\cssparser-0.27.2\src\unicode_range.rs E:\MetaMark\metamark\target\debug\build\cssparser-88776bfccfc240f8\out/tokenizer.rs
+
+C:\Users\wylan\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\cssparser-0.27.2\src\lib.rs:
+C:\Users\wylan\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\cssparser-0.27.2\src\macros.rs:
+C:\Users\wylan\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\cssparser-0.27.2\src\rules_and_declarations.rs:
+C:\Users\wylan\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\cssparser-0.27.2\src\color.rs:
+C:\Users\wylan\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\cssparser-0.27.2\src\cow_rc_str.rs:
+C:\Users\wylan\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\cssparser-0.27.2\src\from_bytes.rs:
+C:\Users\wylan\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\cssparser-0.27.2\src\nth.rs:
+C:\Users\wylan\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\cssparser-0.27.2\src\parser.rs:
+C:\Users\wylan\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\cssparser-0.27.2\src\serializer.rs:
+C:\Users\wylan\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\cssparser-0.27.2\src\unicode_range.rs:
+E:\MetaMark\metamark\target\debug\build\cssparser-88776bfccfc240f8\out/tokenizer.rs:
+
+# env-dep:OUT_DIR=E:\\MetaMark\\metamark\\target\\debug\\build\\cssparser-88776bfccfc240f8\\out

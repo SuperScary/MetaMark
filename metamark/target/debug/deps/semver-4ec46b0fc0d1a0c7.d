@@ -1,0 +1,13 @@
+E:\MetaMark\metamark\target\debug\deps\libsemver-4ec46b0fc0d1a0c7.rmeta: C:\Users\wylan\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\semver-1.0.26\src\lib.rs C:\Users\wylan\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\semver-1.0.26\src\backport.rs C:\Users\wylan\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\semver-1.0.26\src\display.rs C:\Users\wylan\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\semver-1.0.26\src\error.rs C:\Users\wylan\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\semver-1.0.26\src\eval.rs C:\Users\wylan\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\semver-1.0.26\src\identifier.rs C:\Users\wylan\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\semver-1.0.26\src\impls.rs C:\Users\wylan\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\semver-1.0.26\src\parse.rs C:\Users\wylan\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\semver-1.0.26\src\serde.rs
+
+E:\MetaMark\metamark\target\debug\deps\semver-4ec46b0fc0d1a0c7.d: C:\Users\wylan\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\semver-1.0.26\src\lib.rs C:\Users\wylan\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\semver-1.0.26\src\backport.rs C:\Users\wylan\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\semver-1.0.26\src\display.rs C:\Users\wylan\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\semver-1.0.26\src\error.rs C:\Users\wylan\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\semver-1.0.26\src\eval.rs C:\Users\wylan\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\semver-1.0.26\src\identifier.rs C:\Users\wylan\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\semver-1.0.26\src\impls.rs C:\Users\wylan\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\semver-1.0.26\src\parse.rs C:\Users\wylan\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\semver-1.0.26\src\serde.rs
+
+C:\Users\wylan\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\semver-1.0.26\src\lib.rs:
+C:\Users\wylan\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\semver-1.0.26\src\backport.rs:
+C:\Users\wylan\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\semver-1.0.26\src\display.rs:
+C:\Users\wylan\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\semver-1.0.26\src\error.rs:
+C:\Users\wylan\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\semver-1.0.26\src\eval.rs:
+C:\Users\wylan\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\semver-1.0.26\src\identifier.rs:
+C:\Users\wylan\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\semver-1.0.26\src\impls.rs:
+C:\Users\wylan\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\semver-1.0.26\src\parse.rs:
+C:\Users\wylan\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\semver-1.0.26\src\serde.rs:

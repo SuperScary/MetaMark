@@ -75,13 +75,14 @@ impl Parser {
 
     fn parse_blocks(&mut self) -> Result<Vec<Block>> {
         let mut blocks = Vec::new();
-        while let Some(token) = self.current_token() {
+        while let Some(token) = self.current_token().cloned() {
             match token {
                 Token::Heading { level, content } => {
+                    let id = self.generate_id(&content);
                     blocks.push(Block::Heading {
-                        level: *level,
-                        content: content.clone(),
-                        id: self.generate_id(content),
+                        level,
+                        content,
+                        id,
                     });
                     self.advance();
                 }
@@ -94,7 +95,7 @@ impl Parser {
                     self.advance();
                     let content = self.parse_code_content()?;
                     blocks.push(Block::CodeBlock {
-                        language: language.clone(),
+                        language,
                         content,
                     });
                 }
@@ -103,7 +104,7 @@ impl Parser {
                     let items = self.parse_list_items()?;
                     blocks.push(Block::List {
                         items,
-                        ordered: *ordered,
+                        ordered,
                     });
                 }
                 Token::EOF => break,
@@ -115,22 +116,22 @@ impl Parser {
 
     fn parse_inline_content(&mut self) -> Result<Vec<Inline>> {
         let mut content = Vec::new();
-        while let Some(token) = self.current_token() {
+        while let Some(token) = self.current_token().cloned() {
             match token {
                 Token::Text(text) => {
-                    content.push(Inline::Text(text.clone()));
+                    content.push(Inline::Text(text));
                     self.advance();
                 }
                 Token::Bold(text) => {
-                    content.push(Inline::Bold(text.clone()));
+                    content.push(Inline::Bold(text));
                     self.advance();
                 }
                 Token::Italic(text) => {
-                    content.push(Inline::Italic(text.clone()));
+                    content.push(Inline::Italic(text));
                     self.advance();
                 }
                 Token::InlineCode(code) => {
-                    content.push(Inline::Code(code.clone()));
+                    content.push(Inline::Code(code));
                     self.advance();
                 }
                 Token::ParagraphEnd => {
@@ -145,10 +146,10 @@ impl Parser {
 
     fn parse_code_content(&mut self) -> Result<String> {
         let mut content = String::new();
-        while let Some(token) = self.current_token() {
+        while let Some(token) = self.current_token().cloned() {
             match token {
                 Token::Text(text) => {
-                    content.push_str(text);
+                    content.push_str(&text);
                     self.advance();
                 }
                 Token::CodeBlockEnd => {
@@ -163,12 +164,12 @@ impl Parser {
 
     fn parse_list_items(&mut self) -> Result<Vec<ListItem>> {
         let mut items = Vec::new();
-        while let Some(token) = self.current_token() {
+        while let Some(token) = self.current_token().cloned() {
             match token {
                 Token::Text(text) => {
                     items.push(ListItem {
                         content: vec![Block::Paragraph {
-                            content: vec![Inline::Text(text.clone())],
+                            content: vec![Inline::Text(text)],
                         }],
                         checked: None,
                     });
