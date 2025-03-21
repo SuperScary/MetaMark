@@ -1,1 +1,0 @@
-fn([u8; ring::::aead::nonce::{impl#0}::assume_unique_for_key::{constant#0}]) -> Nonce {Nonce::assume_unique_for_key}

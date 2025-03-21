@@ -105,13 +105,6 @@ mmkd --host 0.0.0.0 --port 8080
 
 ---
 
-## **🛠 Future Enhancements**
-📌 **Blockchain-based document verification**.
-📌 **AI-assisted editing with smart suggestions**.
-📌 **Federated `.mmk` document sharing (like Mastodon for structured text)**.
-
----
-
 ## **👥 Contributing**
 Pull requests are welcome! Fork the repo and submit changes.
 

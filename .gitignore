@@ -6,8 +6,4 @@
 .env.test.local
 .env.production.local
 
-/metamark/metamark-editor/node_modules
-/metamark/metamark-editor/dist
-/metamark/metamark-editor/build
-/metamark/metamark-editor/public/
-/metamark/metamark-editor/src/assets/
+/metamark/metamark-core/target/

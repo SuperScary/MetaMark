@@ -1,1 +1,0 @@
-fn({type error}, axum::extract::Path<std::string::String>, axum::extract::State<Arc<AppState>>) -> impl Future<Output = impl IntoResponse> {websocket_handler}
