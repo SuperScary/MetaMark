@@ -6,4 +6,4 @@
 .env.test.local
 .env.production.local
 
-/metamark/metamark-core/target/
+metamark-core/target/
