@@ -3,7 +3,7 @@
 ## **📖 Introduction to MetaMark (`.mmk`)**
 MetaMark (`.mmk`) is a **structured, human-readable markup language** designed for **version control, security, and collaboration**. It extends Markdown with built-in **commit tracking, encryption, annotations, real-time collaboration, and export functionality**.
 
-MetaMark is built in **Rust** for speed, security, and scalability, offering both a **CLI tool (`mmk-cli`)** and a **collaboration server (`mmkd`)** for self-hosted or cloud-based document editing.
+MetaMark is built for speed, security, and scalability, offering both a **CLI tool (`mmk-cli`)** and a **collaboration server (`mmkd`)** for self-hosted or cloud-based document editing.
 
 ---
 
@@ -47,14 +47,14 @@ mmkd --host 0.0.0.0 --port 8080
 
 ---
 ### **4️⃣ GUI Editor (`mmk-editor/`)**
-A **cross-platform graphical editor** for `.mmk` documents, built with **Tauri**.
+A **cross-platform graphical editor** for `.mmk` documents.
 - **`tauri/`** – Desktop UI wrapper.
 - **`src/`** – Source code for the editor.
 - **`components/`** – UI components for **structured text formatting, encryption, and version control**.
 
 Start the editor:
 ```bash
-cargo tauri dev
+npm run tauri dev
 ```
 
 ---
@@ -84,7 +84,7 @@ cargo test
 ## **🚀 Getting Started**
 ### **🔹 Install MetaMark CLI**
 ```bash
-cargo install mmk-cli
+npm install -g mmk-cli
 ```
 
 ### **🔹 Create a New `.mmk` File**
@@ -109,9 +109,10 @@ mmkd --host 0.0.0.0 --port 8080
 Pull requests are welcome! Fork the repo and submit changes.
 
 ```bash
-git clone https://github.com/yourrepo/metamark.git
+git clone https://github.com/SuperScary/MetaMark.git
 cd metamark
-cargo build
+npm install
+npm run build
 ```
 
 ---
