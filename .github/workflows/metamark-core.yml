@@ -52,10 +52,22 @@ jobs:
         nmake /f Makefile.win clean
         nmake /f Makefile.win test
 
-    - name: Upload Core Library
-      if: always()
+    - name: Upload Core Library (Linux/macOS)
+      if: runner.os != 'Windows'
       uses: actions/upload-artifact@v3
       with:
         name: core-library-${{ matrix.os }}
-        path: metamark-core/build/libmetamark.*
+        path: |
+          metamark-core/build/libmetamark.a
+          metamark-core/build/*.o
+        retention-days: 7
+
+    - name: Upload Core Library (Windows)
+      if: runner.os == 'Windows'
+      uses: actions/upload-artifact@v3
+      with:
+        name: core-library-${{ matrix.os }}
+        path: |
+          metamark-core/build/libmetamark.lib
+          metamark-core/build/*.obj
         retention-days: 7 
