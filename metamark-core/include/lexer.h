@@ -3,8 +3,8 @@
  * @brief Lexer types and token definitions for MetaMark
  */
 
-#ifndef LEXER_H
-#define LEXER_H
+#ifndef METAMARK_LEXER_H
+#define METAMARK_LEXER_H
 
 #include <stddef.h>
 
@@ -65,9 +65,18 @@ TokenType next_token(Lexer *lexer);
  * @brief Peek at the next character without consuming it
  * 
  * @param lexer The lexer instance
+ * @param offset The offset from the current position
  * @return char The next character, or '\0' if at end
  */
-char peek(Lexer *lexer);
+char peek_at(const Lexer *lexer, size_t offset);
+
+/**
+ * @brief Peek at the next character without consuming it
+ * 
+ * @param lexer The lexer instance
+ * @return char The next character, or '\0' if at end
+ */
+char peek(const Lexer *lexer);
 
 /**
  * @brief Advance to the next character
@@ -92,6 +101,6 @@ void skip_whitespace(Lexer *lexer);
  * @param end Ending position
  * @return char* The token value, or NULL on error
  */
-char* read_token_value(Lexer *lexer, size_t start, size_t end);
+char* read_token_value(const Lexer *lexer, size_t start, size_t end);
 
-#endif // LEXER_H 
+#endif // METAMARK_LEXER_H 

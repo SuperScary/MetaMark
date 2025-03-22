@@ -19,7 +19,18 @@
  * This static variable stores the most recent error code.
  * It is updated by various functions when errors occur.
  */
-static MetaMarkError last_error = MM_SUCCESS;
+static MetaMarkError last_error = MM_ERROR_NONE;
+
+/**
+ * @brief Set the error code for the library
+ * 
+ * @param error The error code to set
+ * 
+ * This function sets the most recent error code for the library.
+ */
+void set_error(MetaMarkError error) {
+    last_error = error;
+}
 
 /**
  * @brief Get the last error that occurred
@@ -44,14 +55,16 @@ MetaMarkError get_last_error(void) {
  */
 const char* error_to_string(MetaMarkError error) {
     switch (error) {
-        case MM_SUCCESS:
-            return "Success";
+        case MM_ERROR_NONE:
+            return "No error";
         case MM_ERROR_MEMORY:
-            return "Memory allocation failed";
-        case MM_ERROR_SYNTAX:
-            return "Syntax error in document";
+            return "Memory allocation error";
         case MM_ERROR_IO:
-            return "Input/output error";
+            return "I/O error";
+        case MM_ERROR_SYNTAX:
+            return "Syntax error";
+        case MM_ERROR_INVALID:
+            return "Invalid argument";
         default:
             return "Unknown error";
     }
@@ -251,4 +264,24 @@ void debug_print_node(const Node *node, int indent) {
     for (size_t i = 0; i < node->child_count; i++) {
         debug_print_node(node->children[i], indent + 1);
     }
+}
+
+/**
+ * @brief Read and parse a MetaMark file
+ * 
+ * @param filename The path to the file to read
+ * @return Document* A new document structure, or NULL on error
+ * 
+ * This function reads the contents of a file and parses it as a MetaMark document.
+ * It handles file I/O errors and memory allocation failures.
+ */
+Document* read_metamark_file(const char *filename) {
+    char *content = read_file(filename);
+    if (!content) {
+        return NULL;
+    }
+    
+    Document *doc = parse_metamark(content);
+    free(content);
+    return doc;
 } 

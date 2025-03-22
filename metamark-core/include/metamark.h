@@ -44,6 +44,7 @@ typedef struct Node {
     struct Node **children; ///< Array of child nodes
     size_t child_count;     ///< Number of child nodes
     size_t child_capacity;  ///< Current capacity of children array
+    size_t level;           ///< Used for heading levels
 } Node;
 
 /**
@@ -71,10 +72,11 @@ typedef struct {
  * @brief Error codes for the MetaMark library
  */
 typedef enum {
-    MM_SUCCESS = 0,        ///< Operation successful
-    MM_ERROR_MEMORY,       ///< Memory allocation failed
-    MM_ERROR_SYNTAX,       ///< Syntax error in document
-    MM_ERROR_IO           ///< Input/output error
+    MM_ERROR_NONE = 0,    /**< No error */
+    MM_ERROR_MEMORY,      /**< Memory allocation error */
+    MM_ERROR_IO,          /**< I/O error */
+    MM_ERROR_SYNTAX,      /**< Syntax error */
+    MM_ERROR_INVALID      /**< Invalid argument */
 } MetaMarkError;
 
 /**
@@ -143,6 +145,14 @@ void add_metadata(Document *doc, const char *key, const char *value);
  * @return const char* The metadata value, or NULL if not found
  */
 const char* get_metadata(const Document *doc, const char *key);
+
+/**
+ * @brief Parse metadata from a metadata node
+ * 
+ * @param doc The document to add metadata to
+ * @param node The metadata node to parse
+ */
+void parse_metadata_node(Document *doc, const Node *node);
 
 /**
  * @brief Print the AST structure for debugging

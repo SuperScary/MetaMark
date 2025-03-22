@@ -95,33 +95,54 @@ const char* get_metadata(const Document *doc, const char *key) {
 
 // Parse YAML-style metadata from a string
 static void parse_metadata_string(Document *doc, const char *metadata_str) {
-    char *line;
-    char *str_copy = strdup(metadata_str);
-    char *line_start = str_copy;
+    if (!metadata_str) return;
     
-    while ((line = strsep(&line_start, "\n")) != NULL) {
+    const char *line_start = metadata_str;
+    const char *line_end;
+    
+    while (line_start && *line_start) {
+        // Find end of line
+        line_end = strchr(line_start, '\n');
+        
+        // Process the line
+        size_t line_len = line_end ? (line_end - line_start) : strlen(line_start);
+        char *line = malloc(line_len + 1);
+        if (!line) break;
+        
+        strncpy(line, line_start, line_len);
+        line[line_len] = '\0';
+        
         trim_whitespace(line);
         
-        // Skip empty lines
-        if (line[0] == '\0') {
-            continue;
+        // Skip empty lines and comments
+        if (*line != '\0' && *line != '#') {
+            char *key = extract_key(line);
+            char *value = extract_value(line);
+            
+            if (key && value) {
+                add_metadata(doc, key, value);
+            }
+            
+            free(key);
+            free(value);
         }
         
-        // Skip comments
-        if (line[0] == '#') {
-            continue;
+        free(line);
+        
+        // Move to next line
+        if (line_end) {
+            line_start = line_end + 1;
+        } else {
+            break;
         }
-        
-        char *key = extract_key(line);
-        char *value = extract_value(line);
-        
-        if (key && value) {
-            add_metadata(doc, key, value);
-        }
-        
-        free(key);
-        free(value);
+    }
+}
+
+// Public function to parse metadata from a node
+void parse_metadata_node(Document *doc, const Node *node) {
+    if (!doc || !node || node->type != NODE_METADATA || !node->content) {
+        return;
     }
     
-    free(str_copy);
+    parse_metadata_string(doc, node->content);
 } 
