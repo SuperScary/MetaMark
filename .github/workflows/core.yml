@@ -1,0 +1,46 @@
+name: MetaMark Core Tests
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  test:
+    name: Run Tests
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [ubuntu-latest, windows-latest, macos-latest]
+
+    steps:
+    - uses: actions/checkout@v3
+      with:
+        fetch-depth: 0
+
+    - name: Set up GCC
+      uses: egor-tensin/setup-gcc@v1
+      if: runner.os != 'Windows'
+      with:
+        version: latest
+        platform: x64
+
+    - name: Set up MSVC
+      uses: ilammy/msvc-dev-cmd@v1
+      if: runner.os == 'Windows'
+
+    - name: Build and Test (Unix)
+      if: runner.os != 'Windows'
+      working-directory: metamark-core
+      run: |
+        make clean
+        make test
+
+    - name: Build and Test (Windows)
+      if: runner.os == 'Windows'
+      working-directory: metamark-core
+      shell: cmd
+      run: |
+        nmake /f Makefile.win clean
+        nmake /f Makefile.win test 

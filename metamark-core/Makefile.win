@@ -1,0 +1,36 @@
+CC = cl
+CFLAGS = /W4 /I.\include /Zi /D_CRT_SECURE_NO_WARNINGS
+LDFLAGS = 
+
+BUILD_DIR = build
+SRC_DIR = src
+TEST_DIR = tests
+
+SRCS = $(SRC_DIR)\ast.c \
+       $(SRC_DIR)\lexer.c \
+       $(SRC_DIR)\metadata.c \
+       $(SRC_DIR)\parser.c \
+       $(SRC_DIR)\utils.c
+
+TEST_SRCS = $(TEST_DIR)\test_parser.c
+
+OBJS = $(SRCS:.c=.obj)
+TEST_OBJS = $(TEST_SRCS:.c=.obj)
+
+all: $(BUILD_DIR) $(BUILD_DIR)\test_metamark.exe
+
+$(BUILD_DIR):
+	if not exist $(BUILD_DIR) mkdir $(BUILD_DIR)
+
+$(BUILD_DIR)\test_metamark.exe: $(OBJS) $(TEST_OBJS)
+	$(CC) $(CFLAGS) /Fe:$@ $** $(LDFLAGS)
+
+.c.obj:
+	$(CC) $(CFLAGS) /c $< /Fo:$@
+
+test: all
+	$(BUILD_DIR)\test_metamark.exe
+
+clean:
+	if exist $(BUILD_DIR) rmdir /s /q $(BUILD_DIR)
+	del /q /f *.obj *.pdb *.ilk 2>nul 
