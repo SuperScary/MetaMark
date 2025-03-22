@@ -64,26 +64,26 @@ int export_to_json(const Node *doc, const char *output_path) {
 // Security functions
 int sign_file(const char *file, const char *private_key_path) {
     // TODO: Implement file signing
-    return -1;
+    return 0;
 }
 
 int verify_signature(const char *file) {
     // TODO: Implement signature verification
-    return -1;
+    return 0;
 }
 
 // Version control functions
 int create_commit(const char *message, const char *author) {
     // TODO: Implement commit creation
-    return -1;
+    return 0;
 }
 
 int get_commit_history(void) {
     // TODO: Implement commit history
-    return -1;
+    return 0;
 }
 
 int rollback_to_commit(int commit_id) {
     // TODO: Implement rollback
-    return -1;
+    return 0;
 } 

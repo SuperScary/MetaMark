@@ -3,10 +3,10 @@
 #include <stdlib.h>
 #include "../include/cli.h"
 
-// Stub implementations of core functions
-int rollback_to_commit(int commit_id) { return 0; }
-int sign_file(const char *file, const char *private_key_path) { return 0; }
-int verify_signature(const char *file) { return 0; }
+// Remove duplicate function definitions
+// int rollback_to_commit(int commit_id) { return 0; }
+// int sign_file(const char *file, const char *private_key_path) { return 0; }
+// int verify_signature(const char *file) { return 0; }
 
 int handle_parse(int argc, char *argv[]) {
     if (argc < 3) {
@@ -88,6 +88,42 @@ int handle_verify(int argc, char *argv[]) {
     return verify_signature(argv[2]);
 }
 
+int handle_version(int argc, char *argv[]) {
+    // Read CLI version
+    FILE *cli_version = fopen("version.mmk", "r");
+    if (cli_version) {
+        char line[256];
+        while (fgets(line, sizeof(line), cli_version)) {
+            if (strncmp(line, "version:", 8) == 0) {
+                char *version = line + 8;
+                while (*version == ' ') version++; // Skip spaces
+                version[strcspn(version, "\n")] = 0; // Remove newline
+                printf("MetaMark CLI: v%s\n", version);
+                break;
+            }
+        }
+        fclose(cli_version);
+    }
+
+    // Read Core version
+    FILE *core_version = fopen("../metamark-core/version.mmk", "r");
+    if (core_version) {
+        char line[256];
+        while (fgets(line, sizeof(line), core_version)) {
+            if (strncmp(line, "version:", 8) == 0) {
+                char *version = line + 8;
+                while (*version == ' ') version++; // Skip spaces
+                version[strcspn(version, "\n")] = 0; // Remove newline
+                printf("MetaMark Core: v%s\n", version);
+                break;
+            }
+        }
+        fclose(core_version);
+    }
+
+    return 0;
+}
+
 int handle_help(int argc, char *argv[]) {
     print_help();
     return 0;
@@ -104,6 +140,7 @@ void print_help(void) {
     printf("  export --format [pdf|html|json] Export document\n");
     printf("  sign --key private.pem   Sign the document\n");
     printf("  verify <file.mmk>        Verify signature\n");
+    printf("  version                  Display version information\n");
     printf("  help                     Show this help\n");
     printf("\nOptions:\n");
     printf("  --test                   Run in test mode\n");

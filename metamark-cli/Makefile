@@ -28,7 +28,7 @@ TEST_SRCS = $(wildcard $(TEST_DIR)/*.c)
 TEST_OBJS = $(TEST_SRCS:$(TEST_DIR)/%.c=$(OBJ_DIR)/%.o)
 
 # Command files for testing
-CMD_SRCS = $(SRC_DIR)/commands.c
+CMD_SRCS = $(SRC_DIR)/commands.c $(SRC_DIR)/utils.c
 CMD_OBJS = $(CMD_SRCS:$(SRC_DIR)/%.c=$(OBJ_DIR)/%.o)
 
 # Target executables

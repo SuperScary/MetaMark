@@ -11,6 +11,7 @@ static const Command commands[] = {
     {"export", "Export document to various formats", handle_export},
     {"sign", "Sign the document cryptographically", handle_sign},
     {"verify", "Verify document signature", handle_verify},
+    {"version", "Display version information", handle_version},
     {"help", "Show this help message", handle_help},
     {NULL, NULL, NULL}  // End marker
 };

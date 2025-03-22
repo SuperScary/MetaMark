@@ -23,6 +23,7 @@ int handle_rollback(int argc, char *argv[]);
 int handle_export(int argc, char *argv[]);
 int handle_sign(int argc, char *argv[]);
 int handle_verify(int argc, char *argv[]);
+int handle_version(int argc, char *argv[]);
 int handle_help(int argc, char *argv[]);
 
 // Utility functions
