@@ -50,4 +50,12 @@ jobs:
       shell: cmd
       run: |
         nmake /f Makefile.win clean
-        nmake /f Makefile.win test 
+        nmake /f Makefile.win test
+
+    - name: Upload Core Library
+      if: always()
+      uses: actions/upload-artifact@v3
+      with:
+        name: core-library-${{ matrix.os }}
+        path: metamark-core/build/libmetamark.*
+        retention-days: 7 
