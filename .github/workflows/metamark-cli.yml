@@ -1,0 +1,66 @@
+name: MetaMark CLI Tests
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  test:
+    name: Build and Test CLI
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [ubuntu-latest, windows-latest, macos-latest]
+
+    steps:
+    - uses: actions/checkout@v3
+      with:
+        fetch-depth: 0
+
+    - name: Set up GCC (Linux)
+      uses: egor-tensin/setup-gcc@v1
+      if: runner.os == 'Linux'
+      with:
+        version: latest
+        platform: x64
+
+    - name: Set up MSVC
+      uses: ilammy/msvc-dev-cmd@v1
+      if: runner.os == 'Windows'
+
+    - name: Build MetaMark Core (Linux/macOS)
+      if: runner.os != 'Windows'
+      run: |
+        cd metamark-core
+        mkdir -p build
+        make
+
+    - name: Build MetaMark Core (Windows)
+      if: runner.os == 'Windows'
+      run: |
+        cd metamark-core
+        mkdir build
+        nmake /f Makefile.win
+
+    - name: Build and Test CLI (Linux/macOS)
+      if: runner.os != 'Windows'
+      run: |
+        cd metamark-cli
+        mkdir -p obj bin
+        make test
+
+    - name: Build and Test CLI (Windows)
+      if: runner.os == 'Windows'
+      run: |
+        cd metamark-cli
+        mkdir obj bin
+        mingw32-make test
+
+    - name: Upload Test Results
+      if: always()
+      uses: actions/upload-artifact@v3
+      with:
+        name: test-results-${{ matrix.os }}
+        path: metamark-cli/bin/mmk_test* 
