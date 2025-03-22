@@ -54,7 +54,7 @@ jobs:
 
     - name: Upload Core Library (Linux/macOS)
       if: runner.os != 'Windows'
-      uses: actions/upload-artifact@v3
+      uses: actions/upload-artifact@v4
       with:
         name: core-library-${{ matrix.os }}
         path: |
@@ -64,7 +64,7 @@ jobs:
 
     - name: Upload Core Library (Windows)
       if: runner.os == 'Windows'
-      uses: actions/upload-artifact@v3
+      uses: actions/upload-artifact@v4
       with:
         name: core-library-${{ matrix.os }}
         path: |

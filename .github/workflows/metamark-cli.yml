@@ -33,7 +33,7 @@ jobs:
       if: runner.os == 'Windows'
 
     - name: Download Core Library
-      uses: actions/download-artifact@v3
+      uses: actions/download-artifact@v4
       with:
         name: core-library-${{ matrix.os }}
         path: metamark-core/build
@@ -56,7 +56,7 @@ jobs:
 
     - name: Upload Test Results
       if: always()
-      uses: actions/upload-artifact@v3
+      uses: actions/upload-artifact@v4
       with:
         name: test-results-${{ matrix.os }}
         path: |
