@@ -32,21 +32,11 @@ jobs:
       uses: ilammy/msvc-dev-cmd@v1
       if: runner.os == 'Windows'
 
-    - name: Build MetaMark Core (Linux/macOS)
-      if: runner.os != 'Windows'
-      run: |
-        cd metamark-core
-        mkdir -p build
-        make clean
-        make
-
-    - name: Build MetaMark Core (Windows)
-      if: runner.os == 'Windows'
-      run: |
-        cd metamark-core
-        mkdir build
-        nmake /f Makefile.win clean
-        nmake /f Makefile.win
+    - name: Download Core Library
+      uses: actions/download-artifact@v3
+      with:
+        name: core-library-${{ matrix.os }}
+        path: metamark-core/build
 
     - name: Build and Test CLI (Linux/macOS)
       if: runner.os != 'Windows'
