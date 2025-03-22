@@ -1,10 +1,12 @@
 name: MetaMark CLI Tests
 
 on:
-  push:
-    branches: [ main ]
-  pull_request:
-    branches: [ main ]
+  workflow_run:
+    workflows: ["MetaMark Core Tests"]
+    types:
+      - completed
+    branches:
+      - main
 
 jobs:
   test:
@@ -35,6 +37,7 @@ jobs:
       run: |
         cd metamark-core
         mkdir -p build
+        make clean
         make
 
     - name: Build MetaMark Core (Windows)
@@ -42,6 +45,7 @@ jobs:
       run: |
         cd metamark-core
         mkdir build
+        nmake /f Makefile.win clean
         nmake /f Makefile.win
 
     - name: Build and Test CLI (Linux/macOS)
@@ -49,6 +53,7 @@ jobs:
       run: |
         cd metamark-cli
         mkdir -p obj bin
+        make clean
         make test
 
     - name: Build and Test CLI (Windows)
@@ -56,6 +61,7 @@ jobs:
       run: |
         cd metamark-cli
         mkdir obj bin
+        mingw32-make clean
         mingw32-make test
 
     - name: Upload Test Results
@@ -63,4 +69,7 @@ jobs:
       uses: actions/upload-artifact@v3
       with:
         name: test-results-${{ matrix.os }}
-        path: metamark-cli/bin/mmk_test* 
+        path: |
+          metamark-cli/bin/mmk_test*
+          metamark-cli/bin/mmk.exe
+        retention-days: 7 
