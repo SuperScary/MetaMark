@@ -7,3 +7,18 @@
 .env.production.local
 
 metamark-core/build
+
+metamark-cli/build
+
+metamark_editor/build/
+metamark_editor/.dart_tool/
+metamark_editor/.flutter-plugins
+metamark_editor/.flutter-plugins-dependencies
+metamark_editor/.packages
+metamark_editor/.pub-cache/
+metamark_editor/.pub/
+metamark_editor/ios/Pods/
+metamark_editor/android/.gradle/
+metamark_editor/windows/flutter/
+metamark_editor/macos/Flutter/
+metamark_editor/linux/flutter/

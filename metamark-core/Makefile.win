@@ -1,5 +1,5 @@
 CC = cl
-CFLAGS = /W4 /I.\include /Zi /D_CRT_SECURE_NO_WARNINGS
+CFLAGS = /W4 /I.\include /Zi /D_CRT_SECURE_NO_WARNINGS /MD
 LDFLAGS = 
 
 BUILD_DIR = build
@@ -17,12 +17,16 @@ TEST_SRCS = $(TEST_DIR)\test_parser.c
 OBJS = $(SRCS:.c=.obj)
 TEST_OBJS = $(TEST_SRCS:.c=.obj)
 
-all: $(BUILD_DIR) $(BUILD_DIR)\test_metamark.exe
+all: $(BUILD_DIR) $(BUILD_DIR)\Release\metamark-core.lib $(BUILD_DIR)\test_metamark.exe
 
 $(BUILD_DIR):
 	if not exist $(BUILD_DIR) mkdir $(BUILD_DIR)
+	if not exist $(BUILD_DIR)\Release mkdir $(BUILD_DIR)\Release
 
-$(BUILD_DIR)\test_metamark.exe: $(OBJS) $(TEST_OBJS)
+$(BUILD_DIR)\Release\metamark-core.lib: $(OBJS)
+	lib /OUT:$@ $**
+
+$(BUILD_DIR)\test_metamark.exe: $(TEST_OBJS) $(BUILD_DIR)\Release\metamark-core.lib
 	$(CC) $(CFLAGS) /Fe:$@ $** $(LDFLAGS)
 
 .c.obj:
